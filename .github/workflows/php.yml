@@ -33,16 +33,14 @@ jobs:
     needs: [tests]
     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
-  # steps:
-  #   - name: 'SSH to Balok deploy server'
-  #     uses: appleboy/ssh-action@main
-  #     with:
-  #       host: ${{ secrets.HOST }}
-  #       username: ${{ secrets.USERNAME }}
-  #       passowrd: ${{ secrets.PASSWORD }}
-  #       port: ${{ secrets.PORT }}
-  #       script: |
-  #         cd /var/www/balok.id
-  #         ls -lah
+  steps:
+    - name: SSH to Balok deploy server
+      uses: appleboy/ssh-action@main
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        passowrd: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd /var/www/balok.id
+          ls -lah

@@ -1,18 +1,26 @@
 name: Balok CI/CD
 
 on:
+  
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
-jobs:
-  tests:
+ 
+  workflow_dispatch:
 
+
+jobs:
+ 
+  build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-  steps:
-    - uses: actions/checkout@v2
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
   deploy:
     needs: [ tests ]
@@ -29,4 +37,3 @@ jobs:
         script: |
           cd /var/www/balok.id
           ls -lah
-          

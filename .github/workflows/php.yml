@@ -35,12 +35,12 @@ jobs:
 
     steps:
       - name: "SSH to Balok deploy server"
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@main
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: hallo
-            # cd /var/www/balok.id
-            # ls -lah
+          script: |
+            cd /var/www/balok.id
+            ls -lah

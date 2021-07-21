@@ -35,7 +35,7 @@ jobs:
 
     steps:
       - name: "SSH to Balok deploy server"
-        uses: appleboy/ssh-action@main
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}

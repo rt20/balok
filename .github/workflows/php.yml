@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  deploy:
+  tests:
 
     runs-on: ubuntu-latest
 
@@ -29,10 +29,13 @@ jobs:
   
 
 
-  # deploy:
+  deploy:
     # needs: [tests]
     # runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
+    steps:
+    - uses: actions/checkout@v2
   # steps:
   #   - name: 'SSH to Balok deploy server'
   #     uses: appleboy/ssh-action@main

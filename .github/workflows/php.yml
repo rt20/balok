@@ -33,18 +33,18 @@ jobs:
     #   run: composer run-script test
 
 
-  # deploy:
-  #   needs: [tests]
-  #   runs-on: ubuntu-latest
+  deploy:
+    needs: [tests]
+    runs-on: ubuntu-latest
 
-  # steps:
-  #   - name: 'SSH to Balok deploy server'
-  #     uses: appleboy/ssh-action@main
-  #     with:
-  #       host: ${{ secrets.HOST }}
-  #       username: ${{ secrets.USERNAME }}
-  #       passowrd: ${{ secrets.PASSWORD }}
-  #       port: ${{ secrets.PORT }}
-  #       script: |
-  #         cd /var/www/balok.id
-  #         ls -lah
+  steps:
+    - name: 'SSH to Balok deploy server'
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        passowrd: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd /var/www/balok.id
+          ls -lah

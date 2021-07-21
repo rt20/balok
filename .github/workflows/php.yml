@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
 
   steps:
-    - name: SSH to Balok deploy server
+    - name: "SSH to Balok deploy server"
       uses: appleboy/ssh-action@main
       with:
         host: ${{ secrets.HOST }}
